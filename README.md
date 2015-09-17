@@ -2,23 +2,30 @@
 Clean up your exported iMessages to a globally compatible format.
 
 ----------------------------------------------------------
-Purpose: Ever wanted to be able to export your messages on an iphone and read them as a compatible format 
+Purpose: Ever wanted to be able to export your messages on an iphone/android and read them as a compatible format 
 across all platforms? i.e. html, txt, pdf, etc.
 
 **IMPORTANT**
-  The only way you will be able to export your messages, i.e. the .db containing all of your messages,
-  is to either jailbreak your phone or backup your iPhone in Itunes and somehow extract this .db file
-  from the backup.
 
+  With a jailbroken iPhone, you can get your .db file from the directory: 
+  >/var/mobile/Library/SMS/sms.db
+  
+  With a jailed iPhone, you would have to backup your iPhone in iTunes and rip the .db from the 
+  backup file. Instructions on how to do this: http://www.smsiphone.org/
+  
+  For Android users, your .db file is easier to get to. Once your device is rooted, you can access
+  your .db file under /data/databases/com.android.providers/mmssms.db
 
+Once you have the .db file (for iPhones), you export the data from this database file at this website: http://www.smsiphone.org/
 
-Once you have the .db file, you export the data from this database file at this website: http://www.smsiphone.org/
-You can export these to various formats: pdf, csv, pdf.
+Or you can optionally use some program like sqlite to export the .db file to a .csv format.
 
 **IMPORTANT**
+
   At the moment, this script only works with the .csv format. In the future this script will become more flexible.
+  Eventually it will work straight on the .db file, excluding the format conversion middleman.
   
-These are not that readable as they come. This is where this pretty.awk script comes in.
+The file formats your message data comes in is not so readable, therefore it is prettied up by the awk script.
 
 This script currently works using a strip.sed script that singles out your messages to only one sender, 
 i.e. from the number +18005555555. Keep in mind that this removes all the other number's conversations,
@@ -33,10 +40,11 @@ You will now need to run the awk script on a Unix system, and specify an output 
 
 ----------------------------------------------------------
 
-******TO-DO*******
--Improvements:
-1) add switch that allows you to specifically pretty up 1 conversation.
-2) add switch to specify your output format (html, txt, etc.)
-3) add a switch that specifies the input format (html, csv, pdf, etc.)
+**TO-DO**
 
-4) re-write this script in perl
+1) cut out conversion middle-man
+2) add switch that allows you to specifically pretty up to 1 conversation.
+3) add switch to specify your output format (html, txt, etc.)
+4) add a switch that specifies the input format (html, csv, pdf, etc.)
+
+5) re-write this script in perl?
