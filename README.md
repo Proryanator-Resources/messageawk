@@ -1,5 +1,5 @@
 # imessageawk
-Clean up your exported iMessages to a globally compatible format.
+Clean up your exported SMS to a globally compatible format.
 
 ----------------------------------------------------------
 Purpose: Ever wanted to be able to export your messages on an iphone/android and read them as a compatible format 
@@ -11,7 +11,13 @@ across all platforms? i.e. html, txt, pdf, etc.
   >/var/mobile/Library/SMS/sms.db
   
   With a jailed iPhone, you would have to backup your iPhone in iTunes and rip the .db from the 
-  backup file. Instructions on how to do this: http://www.smsiphone.org/
+  backup file. On Windows, the backup file you need is located under:
+  
+  %APPDATA%/Apple Computer/MobileSync/Backup/[large numbered folder]/
+  The file you need is this one:
+  >3d0d7e5fb2ce288813306e4d4636395e047a3d28
+  
+  It's a long name, but this is the .db file for your messages.
   
   For Android users, your .db file is easier to get to. Once your device is rooted, you can access
   your .db file under /data/databases/com.android.providers/mmssms.db
